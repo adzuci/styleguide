@@ -20,6 +20,26 @@ on Terraform Enterprise and includes several other opinions about provisioning p
 * [Comments](#comments)
 * [Labels](#labels)
 
+## General Advice
+
+### Optimize for readability, not performance
+
+Terraform is a declarative language, which in the best case means you express **what** you want rather than **how** it
+should be retrieved. When authoring code, do not try to be "smart" about assumed performance characteristics or
+optimizations. That's what Terraform should worry about!
+
+Optimize for **readability** and **obviousness**. Optimize for performance *only* if you've identified performance
+issues in your code.
+
+### Use `terraform fmt`
+
+The `terraform fmt` tool ensures consistent formatting across teams and projects. While certainly notperfect, 
+unified formatting is a big win, and saves a lot of time in code reviews arguing over details around style.
+
+A good idea could be to run `terraform fmt` on save, which can be configured in most editors.
+
+In order to not flood this guide with data, formatting conventions covered by `terraform fmt` will not be included here.
+
 ## Code Layout
 
 Indentation should be 2 spaces (soft tabs). No hard tabs.
